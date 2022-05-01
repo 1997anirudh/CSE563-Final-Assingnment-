@@ -28,6 +28,27 @@ public class DBScan {
     public DBScan() {
     	make();
     	JPanel p = new JPanel();
+    	JButton saveButton = new JButton("Save");
+        saveButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		try {
+        		BufferedImage image = new BufferedImage(m.getWidth(),m.getHeight(), BufferedImage.TYPE_INT_RGB);
+        		Graphics2D graphics2D = image.createGraphics();
+        		frame.paint(graphics2D);
+        		String userDirectory = FileSystems.getDefault()
+                        .getPath("")
+                        .toAbsolutePath()
+                        .toString();
+        		System.out.println(userDirectory);
+                ImageIO.write(image,"jpeg", new File(userDirectory + "/savedimg.jpeg"));
+        		}
+        		catch(Exception exception) {
+
+        		}
+        	}
+        }
+        		);
+        		p.add(saveButton);
 
     }
 
