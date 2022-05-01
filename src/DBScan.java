@@ -29,6 +29,9 @@ public class DBScan {
     	make();
     	JPanel p = new JPanel();
     	JButton saveButton = new JButton("Save");
+    	JButton loadButton = new JButton("Load");
+        JButton runButton = new JButton("Run");
+        JButton randomButton = new JButton("Randomize");
         saveButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		try {
@@ -48,7 +51,24 @@ public class DBScan {
         	}
         }
         		);
+        		JButton clrButton = new JButton("Clear");
+
+        clrButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		frame.remove(m);
+        		frame.revalidate();
+        		frame.repaint();
+        	}
+        }
+        		);
         		p.add(saveButton);
+        		p.add(loadButton);
+        p.add(clrButton);
+        p.add(runButton);
+        frame.add(p,BorderLayout.NORTH);
+        frame.setVisible(true);
+        frame.pack();
+
 
     }
 
